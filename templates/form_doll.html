@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ 'Editar' if doll else 'Nuevo' }} Doll</h2>
+<form method="POST" class="card p-4 shadow">
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" placeholder="Ej. Violet Evergarden"
+               value="{{ doll[1] if doll else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Edad</label>
+        <input type="number" name="edad" class="form-control" min="1" max="120" placeholder="Ej. 19"
+               value="{{ doll[2] if doll else '' }}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Estado</label>
+        <select name="estado" class="form-select" required>
+            <option value="activo" {% if doll and doll[3] == 'activo' %}selected{% endif %}>Activo</option>
+            <option value="inactivo" {% if doll and doll[3] == 'inactivo' %}selected{% endif %}>Inactivo</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{{ url_for('listar_dolls') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ 'Editar' if carta else 'Nueva' }} Carta</h2>
+<form method="POST" class="card p-4 shadow">
+    {% if not carta %}
+    <!-- Formulario para nueva carta -->
+    <div class="mb-3">
+        <label class="form-label">Cliente</label>
+        <select name="cliente_id" class="form-select" required>
+            {% for cliente in clientes %}
+            <option value="{{ cliente[0] }}">{{ cliente[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Doll Asignada</label>
+        <input type="text" value="{{ doll[1] }}" class="form-control" disabled>
+        <input type="hidden" name="doll_id" value="{{ doll[0] }}">
+    </div>
+    {% else %}
+    <!-- Formulario para editar carta -->
+    <div class="mb-3">
+        <label class="form-label">Contenido</label>
+        <textarea name="contenido" class="form-control" rows="4" required>{{ carta[5] }}</textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Estado</label>
+        <select name="estado" class="form-select" required>
+            <option value="borrador" {% if carta[4] == 'borrador' %}selected{% endif %}>Borrador</option>
+            <option value="revisado" {% if carta[4] == 'revisado' %}selected{% endif %}>Revisado</option>
+            <option value="enviado" {% if carta[4] == 'enviado' %}selected{% endif %}>Enviado</option>
+        </select>
+    </div>
+    {% endif %}
+    {% if not carta %}
+    <div class="mb-3">
+        <label class="form-label">Contenido</label>
+        <textarea name="contenido" class="form-control" rows="4" placeholder="Escriba aquí un resumen del contenido..." required></textarea>
+    </div>
+    {% endif %}
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a href="{{ url_for('listar_cartas') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

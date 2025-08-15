@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Lista de Dolls</h2>
+<a href="/dolls/nuevo" class="btn btn-primary mb-3">+ Nuevo Doll</a>
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Estado</th>
+            <th>Cartas en Proceso</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for doll in dolls %}
+        <tr>
+            <td>{{ doll[0] }}</td>
+            <td>{{ doll[1] }}</td>
+            <td>{{ doll[2] }}</td>
+            <td>
+                {% if doll[3] == 'activo' %}
+                    <span class="badge bg-success">Activo</span>
+                {% else %}
+                    <span class="badge bg-secondary">Inactivo</span>
+                {% endif %}
+            </td>
+            <td>{{ doll[4] }}</td>
+            <td>
+                <a href="{{ url_for('editar_doll', id=doll[0]) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('eliminar_doll', id=doll[0]) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar este Doll?')">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

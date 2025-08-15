@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Lista de Clientes</h2>
+
+<form method="GET" class="row g-3 mb-3">
+    <div class="col-md-4">
+        <input type="text" name="q" class="form-control" placeholder="Buscar por nombre" value="{{ request.args.get('q', '') }}">
+    </div>
+    <div class="col-md-4">
+        <input type="text" name="ciudad" class="form-control" placeholder="Buscar por ciudad" value="{{ request.args.get('ciudad', '') }}">
+    </div>
+    <div class="col-md-4">
+        <button class="btn btn-primary w-100" type="submit">Buscar</button>
+    </div>
+</form>
+
+<a href="/clientes/nuevo" class="btn btn-success mb-3">+ Nuevo Cliente</a>
+
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>Motivo</th>
+            <th>Contacto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente[0] }}</td>
+            <td>{{ cliente[1] }}</td>
+            <td>{{ cliente[2] }}</td>
+            <td>{{ cliente[3] }}</td>
+            <td>
+                {% if '@' in cliente[4] %}
+                    <a href="mailto:{{ cliente[4] }}">{{ cliente[4] }}</a>
+                {% else %}
+                    <a href="tel:{{ cliente[4] }}">{{ cliente[4] }}</a>
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('editar_cliente', id=cliente[0]) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('eliminar_cliente', id=cliente[0]) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar este cliente?')">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

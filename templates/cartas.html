@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="mb-4">Lista de Cartas</h2>
+<a href="/cartas/nuevo" class="btn btn-primary mb-3">+ Nueva Carta</a>
+<div class="table-responsive">
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Doll</th>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Contenido</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for carta in cartas %}
+        <tr>
+            <td>{{ carta[0] }}</td>
+            <td>{{ carta[1] }}</td>
+            <td>{{ carta[2] }}</td>
+            <td>{{ carta[3] }}</td>
+            <td>
+                {% if carta[4] == 'borrador' %}
+                    <span class="badge bg-secondary">Borrador</span>
+                {% elif carta[4] == 'revisado' %}
+                    <span class="badge bg-info">Revisado</span>
+                {% elif carta[4] == 'enviado' %}
+                    <span class="badge bg-success">Enviado</span>
+                {% else %}
+                    {{ carta[4] }}
+                {% endif %}
+            </td>
+            <td>{{ carta[5][:50] }}{% if carta[5]|length > 50 %}...{% endif %}</td>
+            <td>
+                <a href="{{ url_for('editar_carta', id=carta[0]) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('eliminar_carta', id=carta[0]) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar esta carta?')">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

@@ -2,91 +2,121 @@
    ESTILO GENERAL
 ========================= */
 body {
-    font-family: 'Georgia', serif;
-    background-image: url('/static/images/fondo_anime.jpg'); /* Fondo desde static/images */
-    background-size: cover;       /* Cubre toda la pantalla */
-    background-position: center;  /* Centrado */
-    background-attachment: fixed; /* Efecto parallax */
-    background-color: #f4f1e1;    /* Color de respaldo si la imagen no carga */
-    color: #4a3c31;
+    font-family: 'Arial', sans-serif; /* Fuente moderna */
+    background-image: url('/static/images/original.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-attachment: fixed; 
+    background-color: #000000;   
+    color: #ffffff; /* Color del texto blanco */
     line-height: 1.6;
+}
+
+/* =========================
+   (Portada principal)
+========================= */
+.hero {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    height: 100vh;            
+    text-align: center;       
+    flex-direction: column;  
+    padding: 100px; 
+}
+
+.hero h1, 
+.hero h2, 
+.hero h3 {
+    font-family: 'Arial', sans-serif;
+    color: #1C352D; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra aumentada */
+    margin: 10px 0;
 }
 
 /* =========================
    ENCABEZADOS
 ========================= */
 h1, h2, h3 {
-    font-family: 'Times New Roman', serif;
-    color: #3e2c1c;
-    text-shadow: 1px 1px 2px #d1b89f;
+    font-family: 'Arial', sans-serif;
+    color: #1C352D;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
 }
 
 /* =========================
    BOTONES
 ========================= */
 button, .btn {
-    background-color: #6a4e3b;
-    border: 1px solid #4a3c31;
-    color: white;
+    background-color: rgb(86, 143, 135);
+    border: none;
+    color: #fff;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Botones más grandes */
     cursor: pointer;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    border-radius: 8px; /* Esquinas redondeadas */
+    transition: background-color 0.3s ease, transform 0.2s; /* Efecto de transformación */
 }
 
 button:hover, .btn:hover {
-    background-color: #5a3e2b;
+    background-color: rgb(70, 120, 110); /* Color más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de aumento */
 }
 
 /* =========================
    TABLAS
 ========================= */
 .table {
-    background-color: rgba(255, 255, 255, 0.9); /* Blanco translúcido */
-    border: 1px solid #d1b89f;
-    border-radius: 5px;
+    background-color: rgb(6, 66, 50);
+    border: 1px solid #3e232a;
+    border-radius: 10px; /* Esquinas redondeadas */
+    color: #fff;
+    overflow: hidden; /* Evitar que el contenido sobresalga */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
 
 .table th {
-    background-color: #6a4e3b;
-    color: white;
+    background-color: rgb(28, 53, 45); /* Color de fondo para encabezados */
+    color: #fff;
+    text-align: left; /* Alineación a la izquierda */
 }
 
 .table td, .table th {
-    padding: 12px;
+    padding: 15px; /* Espaciado aumentado */
     vertical-align: middle;
 }
 
 /* Responsive para tablas */
 .table-responsive {
-    border: 1px solid #d1b89f;
-    border-radius: 5px;
-    padding: 5px;
-    background: rgba(255, 255, 255, 0.9);
+    border: 10px solid #568F87;
+    border-radius: 25px;
+    padding: 15px; /* Padding aumentado */
+    background: rgb(6, 66, 50);
+    color: #fff;
 }
 
 /* =========================
    FORMULARIOS
 ========================= */
 input, select, textarea {
-    border: 1px solid #d1b89f;
-    padding: 8px;
+    border: 1px solid #6b5c51;
+    padding: 10px; /* Padding aumentado */
     border-radius: 5px;
     width: 100%;
-    margin-bottom: 10px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fondo translúcido */
+    margin-bottom: 15px; /* Margen inferior aumentado */
+    background-color: #ffffff; /* Contraste mejorado */
+    color: #000; /* Color del texto negro */
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: #6a4e3b;
-    box-shadow: 0 0 5px rgba(106, 78, 59, 0.5);
+    border-color: #1C352D; /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(28, 53, 45, 0.5); /* Sombra al enfocar */
 }
 
 /* Placeholder más suave */
 ::placeholder {
-    color: #a28e7a;
+    color: #aaa; /* Gris más suave */
     font-style: italic;
 }
 
@@ -94,16 +124,18 @@ input:focus, select:focus, textarea:focus {
    NAVBAR
 ========================= */
 .navbar {
-    background-color: rgba(106, 78, 59, 0.95) !important; /* Translúcida */
+    background-color: rgb(28, 53, 45);
+    padding: 15px; /* Padding para la navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
 }
 
 .navbar-brand, .nav-link {
-    color: #f4f1e1 !important;
+    color: #f4f1e1;
     font-weight: bold;
 }
 
 .nav-link:hover {
-    color: #d1b89f !important;
+    color: #ffffff; /* Color blanco al pasar el mouse */
     text-decoration: underline;
 }
 
@@ -111,24 +143,27 @@ input:focus, select:focus, textarea:focus {
    TARJETAS Y CONTENEDORES
 ========================= */
 .card {
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid #d1b89f;
+    background-color: rgb(6, 66, 50);
+    border: 1px solid #6a4e3b;
     border-radius: 10px;
+    color: #fff;
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
 }
 
 /* =========================
    BADGES PERSONALIZADOS
 ========================= */
 .badge.bg-success {
-    background-color: #4caf50 !important;
+    background-color: #4caf50;
 }
 
 .badge.bg-secondary {
-    background-color: #7a7a7a !important;
+    background-color: #7a7a7a;
 }
 
 .badge.bg-info {
-    background-color: #17a2b8 !important;
+    background-color: #17a2b8;
 }
 
 /* =========================
@@ -138,6 +173,9 @@ input:focus, select:focus, textarea:focus {
     border-radius: 5px;
     font-weight: bold;
     margin-top: 10px;
+    background-color: rgb(6, 66, 50);
+    color: #fff;
+    padding: 15px; /* Padding aumentado */
 }
 
 /* =========================
@@ -148,11 +186,11 @@ input:focus, select:focus, textarea:focus {
         font-size: 1.5rem;
     }
     .btn {
-        padding: 8px 12px;
-        font-size: 0.9rem;
+        padding: 10px 15px; /* Ajuste de padding para pantallas pequeñas */
+        font-size: 1rem; /* Ajuste de tamaño de fuente */
     }
     .table th, .table td {
-        font-size: 0.85rem;
-        padding: 8px;
+        font-size: 0.9rem; /* Ajuste de tamaño de fuente */
+        padding: 10px; /* Ajuste de padding */
     }
 }

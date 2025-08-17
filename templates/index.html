@@ -1,7 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="text-center">
-    <h1 class="display-4">Bienvenido a la Compañía Postal CH</h1>
-    <p class="lead">Gestión de Dolls, Clientes y Cartas con estilo.</p>
+
+<style>
+.center {
+    display: flex;
+    justify-content: center;   /* centra horizontalmente */
+    align-items: center;       /* centra verticalmente */
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    padding-top: 160px;        /* controlas la altura desde la navbar */
+    min-height: auto;          /* que no lo empuje hacia abajo */
+}
+
+/* Botón flotante */
+#musicBtn {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 20px;
+    background: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+}
+#musicBtn:hover {
+    background: #574fd6;
+}
+</style>
+
+<div class="center">
+    <h1 class="display-4">Auto Memory Dolls</h1>
 </div>
+
+<script>
+</script>
+
 {% endblock %}

@@ -1,6 +1,6 @@
 DB_CONFIG = {
     'host': 'localhost',
-    'database': 'violet',
+    'database': 'proyecto',
     'user': 'postgres',
-    'password': '12345'
+    'password': '123'
 }

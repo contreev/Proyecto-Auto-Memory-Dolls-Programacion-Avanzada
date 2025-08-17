@@ -18,19 +18,19 @@
         <tbody>
             {% for d in reporte %}
             <tr>
-                <td>{{ d[0] }}</td>
-                <td>{{ d[1] }}</td>
+                <td>{{ d.id }}</td>
+                <td>{{ d.nombre }}</td>
                 <td>
-                    {% if d[2] == 'activo' %}
+                    {% if d.estado == 'activo' %}
                         <span class="badge bg-success">Activo</span>
                     {% else %}
                         <span class="badge bg-secondary">Inactivo</span>
                     {% endif %}
                 </td>
-                <td>{{ d[3] }}</td>
-                <td>{{ d[4] }}</td>
-                <td>{{ d[5] }}</td>
-                <td>{{ d[6] }}</td>
+                <td>{{ d.cartas_en_proceso }}</td>
+                <td>{{ d.total_cartas }}</td>
+                <td>{{ d.enviadas }}</td>
+                <td>{{ d.clientes_unicos }}</td>
             </tr>
             {% endfor %}
         </tbody>

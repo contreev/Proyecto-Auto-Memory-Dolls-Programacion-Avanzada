@@ -1,6 +1,6 @@
-/* =========================
+/* 
    ESTILO GENERAL
-========================= */
+*/
 body {
     font-family: 'Arial', sans-serif; /* Fuente moderna */
     background-image: url('/static/images/original.jpg'); 
@@ -12,9 +12,9 @@ body {
     line-height: 1.6;
 }
 
-/* =========================
+/* 
    (Portada principal)
-========================= */
+ */
 .hero {
     display: flex;
     justify-content: center;  
@@ -30,13 +30,13 @@ body {
 .hero h3 {
     font-family: 'Arial', sans-serif;
     color: #1C352D; 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra aumentada */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
     margin: 10px 0;
 }
 
-/* =========================
+/* 
    ENCABEZADOS
-========================= */
+ */
 h1, h2, h3 {
     font-family: 'Arial', sans-serif;
     color: #1C352D;
@@ -44,45 +44,45 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* =========================
+/* 
    BOTONES
-========================= */
+ */
 button, .btn {
     background-color: rgb(86, 143, 135);
     border: none;
     color: #fff;
     font-weight: bold;
-    padding: 12px 24px; /* Botones más grandes */
+    padding: 12px 24px; 
     cursor: pointer;
-    border-radius: 8px; /* Esquinas redondeadas */
-    transition: background-color 0.3s ease, transform 0.2s; /* Efecto de transformación */
+    border-radius: 8px; 
+    transition: background-color 0.3s ease, transform 0.2s; 
 }
 
 button:hover, .btn:hover {
-    background-color: rgb(70, 120, 110); /* Color más oscuro al pasar el mouse */
-    transform: scale(1.05); /* Efecto de aumento */
+    background-color: rgb(70, 120, 110);
+    transform: scale(1.05); 
 }
 
-/* =========================
+/* 
    TABLAS
-========================= */
+ */
 .table {
     background-color: rgb(6, 66, 50);
     border: 1px solid #3e232a;
-    border-radius: 10px; /* Esquinas redondeadas */
+    border-radius: 10px; 
     color: #fff;
-    overflow: hidden; /* Evitar que el contenido sobresalga */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .table th {
-    background-color: rgb(28, 53, 45); /* Color de fondo para encabezados */
+    background-color: rgb(28, 53, 45); 
     color: #fff;
-    text-align: left; /* Alineación a la izquierda */
+    text-align: left; 
 }
 
 .table td, .table th {
-    padding: 15px; /* Espaciado aumentado */
+    padding: 15px; 
     vertical-align: middle;
 }
 
@@ -90,43 +90,43 @@ button:hover, .btn:hover {
 .table-responsive {
     border: 10px solid #568F87;
     border-radius: 25px;
-    padding: 15px; /* Padding aumentado */
+    padding: 15px; 
     background: rgb(6, 66, 50);
     color: #fff;
 }
 
-/* =========================
+/* 
    FORMULARIOS
-========================= */
+ */
 input, select, textarea {
     border: 1px solid #6b5c51;
-    padding: 10px; /* Padding aumentado */
+    padding: 10px; 
     border-radius: 5px;
     width: 100%;
-    margin-bottom: 15px; /* Margen inferior aumentado */
-    background-color: #ffffff; /* Contraste mejorado */
-    color: #000; /* Color del texto negro */
+    margin-bottom: 15px; 
+    background-color: #ffffff; 
+    color: #000; 
 }
 
 input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: #1C352D; /* Color del borde al enfocar */
-    box-shadow: 0 0 5px rgba(28, 53, 45, 0.5); /* Sombra al enfocar */
+    border-color: #1C352D;
+    box-shadow: 0 0 5px rgba(28, 53, 45, 0.5); 
 }
 
-/* Placeholder más suave */
+
 ::placeholder {
-    color: #aaa; /* Gris más suave */
+    color: #aaa; 
     font-style: italic;
 }
 
-/* =========================
+/* 
    NAVBAR
-========================= */
+ */
 .navbar {
     background-color: rgb(28, 53, 45);
-    padding: 15px; /* Padding para la navbar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    padding: 15px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
 }
 
 .navbar-brand, .nav-link {
@@ -135,25 +135,25 @@ input:focus, select:focus, textarea:focus {
 }
 
 .nav-link:hover {
-    color: #ffffff; /* Color blanco al pasar el mouse */
+    color: #ffffff; 
     text-decoration: underline;
 }
 
-/* =========================
+/* 
    TARJETAS Y CONTENEDORES
-========================= */
+ */
 .card {
     background-color: rgb(6, 66, 50);
     border: 1px solid #6a4e3b;
     border-radius: 10px;
     color: #fff;
-    padding: 20px; /* Padding interno */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
-/* =========================
+/* 
    BADGES PERSONALIZADOS
-========================= */
+ */
 .badge.bg-success {
     background-color: #4caf50;
 }
@@ -166,31 +166,31 @@ input:focus, select:focus, textarea:focus {
     background-color: #17a2b8;
 }
 
-/* =========================
+/* 
    MENSAJES FLASH
-========================= */
+ */
 .alert {
     border-radius: 5px;
     font-weight: bold;
     margin-top: 10px;
     background-color: rgb(6, 66, 50);
     color: #fff;
-    padding: 15px; /* Padding aumentado */
+    padding: 15px; 
 }
 
-/* =========================
+/* 
    RESPONSIVE
-========================= */
+*/
 @media (max-width: 768px) {
     h2 {
         font-size: 1.5rem;
     }
     .btn {
-        padding: 10px 15px; /* Ajuste de padding para pantallas pequeñas */
-        font-size: 1rem; /* Ajuste de tamaño de fuente */
+        padding: 10px 15px; 
+        font-size: 1rem; 
     }
     .table th, .table td {
-        font-size: 0.9rem; /* Ajuste de tamaño de fuente */
-        padding: 10px; /* Ajuste de padding */
+        font-size: 0.9rem; 
+        padding: 10px; 
     }
 }

@@ -4,7 +4,7 @@ from config import DB_CONFIG
 from datetime import date
 import random
 
-# Servicios (sin importaciones circulares)
+# Servicios 
 from services.cartas_services import (
     cambiar_estado_carta,
     crear_carta,
@@ -25,7 +25,7 @@ ESTADOS = ["en espera", "borrador", "revisado", "enviado"]
 def get_db_connection():
     return psycopg2.connect(**DB_CONFIG)
 
-# -------------------- HELPERS DE REPORTES --------------------
+#  HELPERS DE REPORTES 
 def completar_datos_doll(nombre=None, edad=None, estado=None):
     if not nombre or nombre.strip() == "":
         nombre = f"Doll_{random.randint(100,999)}"
@@ -86,15 +86,14 @@ def obtener_reporte_dolls():
         })
     return reporte
 
-# ==========================================================
-# -------------------- RUTAS PRINCIPALES -------------------
-# ==========================================================
+# RUTAS PRINCIPALES 
+
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# -------------------- DOLLS --------------------
+# DOLLS 
 @app.route('/dolls')
 def listar_dolls():
     conn = get_db_connection()
@@ -154,7 +153,7 @@ def editar_doll(id):
         edad = request.form.get('edad')
         estado = request.form.get('estado')  # 'activo' o 'inactivo'
 
-        # Actualizamos nombre/edad
+        # Actualiza nombre/edad
         conn = get_db_connection()
         cur = conn.cursor()
         cur.execute("UPDATE dolls SET nombre=%s, edad=%s WHERE id=%s", (nombre, edad, id))
@@ -162,7 +161,7 @@ def editar_doll(id):
         cur.close()
         conn.close()
 
-        # Cambiamos estado con side-effects (reasignar/liberar cartas)
+        # Cambiamos estado con side-effects 
         try:
             if estado == 'activo':
                 reasignadas = activar_doll(id)
@@ -203,7 +202,7 @@ def eliminar_doll(id):
     flash("Doll eliminada (sus cartas pasaron a 'en espera').", "danger")
     return redirect(url_for('listar_dolls'))
 
-# -------------------- CLIENTES --------------------
+# CLIENTES 
 @app.route('/clientes')
 def listar_clientes():
     q = request.args.get('q', '')
@@ -273,7 +272,7 @@ def eliminar_cliente(id):
     flash("Cliente eliminado", "danger")
     return redirect(url_for('listar_clientes'))
 
-# -------------------- CARTAS --------------------
+#  CARTAS 
 @app.route('/cartas')
 def listar_cartas():
     conn = get_db_connection()
@@ -360,12 +359,12 @@ def eliminar_carta(id):
     conn.close()
     return redirect(url_for('listar_cartas'))
 
-# -------------------- REPORTES --------------------
+#  REPORTES 
 @app.route('/reporte_dolls')
 def reporte_dolls():
     reporte = obtener_reporte_dolls()
     return render_template('v_reporte_doll.html', reporte=reporte)
 
-# ==========================================================
+
 if __name__ == '__main__':
     app.run(debug=True)

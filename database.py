@@ -7,12 +7,13 @@ import random
 app = Flask(__name__)
 app.secret_key = "clave_secreta_segura"
 
+# Se definen los estados de una carta
 ESTADOS = ["borrador", "revisado", "enviado"]
 
 def get_db_connection():
     return psycopg2.connect(**DB_CONFIG)
 
-# -------------------- FUNCIÓN PARA COMPLETAR DATOS --------------------
+# Completar datos de una Doll
 def completar_datos_faltantes(doll):
     """
     Recibe un diccionario con los datos de una Doll
@@ -31,7 +32,7 @@ def completar_datos_faltantes(doll):
         ])
     return doll
 
-# -------------------- FUNCIONES PARA CARTAS --------------------
+# FUNCIONES PARA CARTAS 
 def guardar_carta(datos):
     """
     Inserta una carta en la base de datos y retorna el ID generado.
@@ -107,12 +108,12 @@ def eliminar_carta_bd(carta_id):
     cur.close()
     conn.close()
 
-# -------------------- HOME --------------------
+# HOME
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# -------------------- DOLLS --------------------
+# DOLLS 
 @app.route('/dolls')
 def listar_dolls():
     conn = get_db_connection()
@@ -191,7 +192,7 @@ def eliminar_doll(id):
     flash("Doll eliminada", "danger")
     return redirect(url_for('listar_dolls'))
 
-# -------------------- CLIENTES --------------------
+# CLIENTES 
 @app.route('/clientes')
 def listar_clientes():
     q = request.args.get('q', '')
@@ -268,7 +269,7 @@ def eliminar_cliente(id):
     flash("Cliente eliminado", "danger")
     return redirect(url_for('listar_clientes'))
 
-# -------------------- CARTAS --------------------
+# CARTAS 
 @app.route('/cartas')
 def listar_cartas():
     conn = get_db_connection()
@@ -354,7 +355,7 @@ def eliminar_carta(id):
     conn.close()
     return redirect(url_for('listar_cartas'))
 
-# -------------------- REPORTES --------------------
+#  REPORTES 
 @app.route('/reporte_dolls')
 def reporte_dolls():
     conn = get_db_connection()
